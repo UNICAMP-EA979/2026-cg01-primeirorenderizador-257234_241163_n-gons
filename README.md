@@ -48,7 +48,7 @@ Os arquivos indicados possuem mais informações quando necessário.
 
 ### Entrypoints
 
-- [ ] 01-first_cube.py: este arquivo já está finalizado. Utilize-o para testar o código do renderizador.
+- [X] 01-first_cube.py: este arquivo já está finalizado. Utilize-o para testar o código do renderizador.
 - [ ] 02-pyramid.py: crie uma cena com uma pirâmide
 - [ ] 03-grandchild.py: crie uma cena com vários objetos filhos um do outro.
 - [ ] 04-intersection.py: explore a limitação do algoritmo de oclusão utilizado.
