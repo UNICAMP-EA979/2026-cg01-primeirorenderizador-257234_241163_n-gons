@@ -92,24 +92,19 @@ class PyplotRenderer(Renderer):
             tuple[bool, np.ndarray]: if the triangle was clipped, and the triangle normalized if it was not.
         '''
 
-        ## SEU CÓDIGO AQUI #####################################################
-        # Realize o clipping do triângulo
-
         # Cheque se o triângulo está inteiramente visível
         # Cada vértice é composto por quatro valores triangle[i] = [v_x, v_y, v_z, v_w]
         # Todos os vértices do triângulo devem estar dentro do volume: -v_w <= v_x, v_y, v_z <= v_w
-
-        # Checa se o triângulo removido
-        clip =
+        v_x, v_y, v_z, v_w = triangle.T
+        clip = np.any(v_x < -v_w) or np.any(v_x > v_w) or np.any(v_y < -v_w) or np.any(v_y > v_w) or np.any(v_z < -v_w) or np.any(v_z > v_w)
 
         if not clip:
             # Normalize o triângulo, dividindo cada vértice pelo seu último valor v_w
-            triangle_ndc =
+            triangle_ndc = triangle / triangle[:, 3][:, np.newaxis]
 
             return clip, triangle_ndc
 
         return clip, triangle
-        #########################################################################
 
     def _stage_screen_mapping(self, triangle: np.ndarray) -> np.ndarray:
         '''
