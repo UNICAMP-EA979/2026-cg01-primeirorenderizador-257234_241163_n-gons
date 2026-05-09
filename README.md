@@ -44,7 +44,7 @@ Os arquivos indicados possuem mais informações quando necessário.
 >   - $c = 1.0/\tan{(\phi/2)}$, em que $\phi$ é o FoV vertical da câmera.
 
 - [X] urenderer/aplication/runtime.py: implemente a construção da matriz de transformação de modelo final de cada nó
-- [ ] urenderer/renderer/pyplot_renderer.py: implemente os estágios de geometria
+- [X] urenderer/renderer/pyplot_renderer.py: implemente os estágios de geometria
 
 ### Entrypoints
 
