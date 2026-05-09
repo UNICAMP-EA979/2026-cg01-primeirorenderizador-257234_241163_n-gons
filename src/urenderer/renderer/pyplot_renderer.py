@@ -71,13 +71,9 @@ class PyplotRenderer(Renderer):
         Returns:
             np.ndarray: the projected triangle
         '''
-        ## SEU CÓDIGO AQUI #####################################################
-        # Projete o triângulo, combinando a matriz de transformação do modelo,
-        #  view matriz (self._view_matrix) e a matriz de projeção (self._projection_matrix)
 
-        triangle_proj =
-
-        #########################################################################
+        triangle_proj = self._projection_matrix @ self._view_matrix @ model_transformation @ triangle.T
+        triangle_proj = triangle_proj.T
 
         return triangle_proj
 
