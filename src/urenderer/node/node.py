@@ -46,20 +46,20 @@ class Node:
 
         # Scale matrix
         S = np.eye(4)
+        S[0, 0] = self.scale[0]
+        S[1, 1] = self.scale[1]
+        S[2, 2] = self.scale[2]
 
         # Translation matrix
         T = np.eye(4)
+        T[:3, 3] = self.translation
 
         # Rotation matrix
-        # Dica: utilize o método Rotation.from_euler para criar a rotação
-        # Observe que os ângulos de rotação estão em graus
         R = np.eye(4)
+        r = Rotation.from_euler('xyz', self.rotation, degrees=True)
+        R[:3, :3] = r.as_matrix()
 
-        final_transformation =
-
-        #########################################################################
-
-        return final_transformation
+        return T @ R @ S
 
     @property
     def parent(self) -> "Node | None":
