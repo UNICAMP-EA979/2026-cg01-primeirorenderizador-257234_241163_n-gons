@@ -41,9 +41,6 @@ class Node:
             np.ndarray: 4x4 model transformation
         '''
 
-        ## SEU CÓDIGO AQUI #####################################################
-        # Crie as matrizes de transformação e concatene elas
-
         # Scale matrix
         S = np.eye(4)
         S[0, 0] = self.scale[0]
