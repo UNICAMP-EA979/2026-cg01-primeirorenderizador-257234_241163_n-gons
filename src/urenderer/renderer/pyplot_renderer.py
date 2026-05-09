@@ -118,14 +118,12 @@ class PyplotRenderer(Renderer):
         Returns:
             np.ndarray: mapped triangle
         '''
-        ## SEU CÓDIGO AQUI #####################################################
-        # Mapeie o triângulo que está no intervalo [-1, 1]
-        # A primeira coordenada deve ser mapeada para [0, self.screen_width]
-        # A segunda coordenada deve ser mapeada para [0, self.screen_height]
 
-        #########################################################################
+        triangle_screen = np.zeros_like(triangle)
+        triangle_screen[:, 0] = (triangle[:, 0] + 1) * self.screen_width / 2
+        triangle_screen[:, 1] = (triangle[:, 1] + 1) * self.screen_height / 2
 
-        return triangle
+        return triangle_screen
 
     def render_valid_node(self, node: Node, model_transformation: np.ndarray):
         '''
