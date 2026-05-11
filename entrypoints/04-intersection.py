@@ -15,6 +15,24 @@ if __name__ == "__main__":
     renderer = urenderer.renderer.PyplotRenderer(1920, 1080)
     runtime = urenderer.application.Runtime(renderer, name="04-intersection")
 
-    # Crie a cena
+    cube0 = urenderer.node.Node()
+    cube1 = urenderer.node.Node()
+
+    cube0.render_data = urenderer.geometry.polygonal_ifs.get_ifs_cube()
+    cube1.render_data = urenderer.geometry.polygonal_ifs.get_ifs_cube()
+
+    # Dois cubos em profundidades proximas
+    cube0.translation = np.array([-0.3, 0.0, -5.0], dtype=np.float64)
+    cube1.translation = np.array([ 0.3, 0.0, -5.0], dtype=np.float64)
+
+    # Rotações diferentes para que eles se atravessem visualmente
+    cube0.rotation = np.array([0.0, 45.0, 0.0], dtype=np.float64)
+    cube1.rotation = np.array([45.0, 0.0, 0.0], dtype=np.float64)
+
+    cube0.scale = np.array([1.5, 1.5, 1.5], dtype=np.float64)
+    cube1.scale = np.array([1.5, 1.5, 1.5], dtype=np.float64)
+
+    runtime.scene.add_child(cube0)
+    runtime.scene.add_child(cube1)
 
     runtime.iter(capture=True)

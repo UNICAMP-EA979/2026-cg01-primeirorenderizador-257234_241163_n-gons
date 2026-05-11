@@ -122,6 +122,7 @@ class PyplotRenderer(Renderer):
         triangle_screen = np.zeros_like(triangle)
         triangle_screen[:, 0] = (triangle[:, 0] + 1) * self.screen_width / 2
         triangle_screen[:, 1] = (triangle[:, 1] + 1) * self.screen_height / 2
+        triangle_screen[:, 2] = (triangle[:, 2] + 1) / 2
 
         return triangle_screen
 

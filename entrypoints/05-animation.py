@@ -38,6 +38,13 @@ if __name__ == "__main__":
     node.callbacks.append(animate_over_time)
 
     # Crie a cena
+    node.render_data = urenderer.geometry.polygonal_ifs.get_ifs_cube()
+
+    node.translation = np.array([0, 0, -5], dtype=np.float64)
+    node.rotation = np.array([0, 0, 0], dtype=np.float64)
+    node.scale = np.array([1, 1, 1], dtype=np.float64)
+
+    runtime.scene.add_child(node)
 
     runtime.loop(n=10, capture=True)
 
